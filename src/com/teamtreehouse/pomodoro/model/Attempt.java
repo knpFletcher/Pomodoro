@@ -1,15 +1,18 @@
 package com.teamtreehouse.pomodoro.model;
 
 public class Attempt {
-
     private String mMessage;
     private int mRemainingSeconds;
     private AttemptKind mKind;
 
-    public Attempt(String message, AttemptKind kind) {
-        mMessage = message;
+    public Attempt(AttemptKind kind, String message) {
         mKind = kind;
-        mRemainingSeconds = mKind.getTotalSeconds();
+        mMessage = message;
+        mRemainingSeconds = kind.getTotalSeconds();
+    }
+
+    public AttemptKind getKind() {
+        return mKind;
     }
 
     public String getMessage() {
@@ -18,10 +21,6 @@ public class Attempt {
 
     public int getRemainingSeconds() {
         return mRemainingSeconds;
-    }
-
-    public AttemptKind getKind() {
-        return mKind;
     }
 
     public void setMessage(String message) {
